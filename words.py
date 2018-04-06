@@ -11,8 +11,10 @@ from math import*
 import nltk
 from gensim.models.keyedvectors import KeyedVectors
 import gensim
+import csv
+import json
 
-model = gensim.models.KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin', binary=True ,limit=500000)
+model = gensim.models.KeyedVectors.load_word2vec_format('word2vec/trunk/vectors.bin', binary=True ,limit=500000)
 
 
 def square_rooted(x):
@@ -31,7 +33,7 @@ df = pd.read_csv("comp_1.csv", delimiter = ',')
 #print df
 
 #print df.isnull().sum().sum()
-user_df = pd.read_csv("users.csv", delimiter = ',')
+user_df = pd.read_csv("users1.csv", delimiter = ',')
 #print(len(user_df))
 
 print "Creating the bag of words...\n"
@@ -125,5 +127,15 @@ res = [
 result = pd.DataFrame.from_items(res)
 
 #print(result)
-result.to_csv("result22.csv")
+result.to_csv("result222.csv")
+
+csvfile = open('result222.csv', 'r')
+jsonfile = open('resultj2.json', 'w')
+
+fieldnames = ("S.no.","Name of user","Competition Name","Label","Ranking")
+reader = csv.DictReader( csvfile, fieldnames)
+for row in reader:
+    json.dump(row, jsonfile)
+    jsonfile.write('\n')
+
 
