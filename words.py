@@ -132,7 +132,7 @@ result.to_csv("result222.csv")
 csvfile = open('result222.csv', 'r')
 jsonfile = open('resultj2.json', 'w')
 
-fieldnames = ("S.no.","Name of user","Competition Name","Label","Ranking")
+fieldnames = ("Sno","User_id","Competition_name","Label","Ranking")
 reader = csv.DictReader( csvfile, fieldnames)
 for row in reader:
     json.dump(row, jsonfile)
