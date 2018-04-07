@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Extension For Students</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="css/styleme.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<script type="text/javascript">
+    var arr = new Array();
+    var lang = new Array();
+  //var count = new Array();
+  //var coun = 1;
+ function abc(){ 
+  var github = document.getElementById('github').value;
+  
+  var count = 0;
+  jQuery.ajax({
+            url: "https://api.github.com/users/"+escape(github),
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            success: function(MainData) {
+              var c=MainData.public_repos
+              for (var i=0; i<c; i++){
+                  jQuery.ajax({
+                    url: "https://api.github.com/users/"+escape(github)+"/repos",
+                    type: "GET",
+
+                    contentType: 'application/json; charset=utf-8',
+                    success: function(reposData) {
+                          jQuery.ajax({
+                              url: "https://api.github.com/repos/"+escape(reposData[count++].full_name)+"/languages",
+                              type: "GET",
+
+                              dataType: 'json',
+                              success: function(languageData) {
+                                //var data = JSON.parse(languageData);
+                                $.each(languageData, function(index, record) {
+                                  //if(Hmap.includes(index))
+                                    arr.push(index);
+                                  //console.log("hi")
+                                  //else
+                                  //var str = JSON.stringify(index);
+                                    //arr.push(str);
+                                //});
+                                //var s= JSON.stringify(languageData);
+                              });
+                                //console.log(languageData);
+                              },
+                              error : function(jqXHR, textStatus, errorThrown) {
+                              },
+
+                              timeout: 120000,
+                          });
+                          
+
+                    },
+                    error : function(jqXHR, textStatus, errorThrown) {
+                    },
+
+                    timeout: 120000,
+                });
+            }
+
+            //Hmap.sort();
+            console.log(arr);
+          },
+            error : function(jqXHR, textStatus, errorThrown) {
+            },
+            timeout: 120000,
+        
+      });
+
+    
+    
+}
+function compressArray(original) {
+ 
+  var compressed = [];
+  // make a copy of the input array
+  var copy = original.slice(0);
+ 
+  // first loop goes over every element
+  for (var i = 0; i < original.length; i++) {
+ 
+    var myCount = 0;  
+    // loop over every element in the copy and see if it's the same
+    for (var w = 0; w < copy.length; w++) {
+      if (original[i] == copy[w]) {
+        // increase amount of times duplicate is found
+        myCount++;
+        // sets item to undefined
+        delete copy[w];
+      }
+    }
+ 
+    if (myCount > 0) {
+      var a = new Object();
+      a.skill = original[i];
+      a.count = myCount;
+      compressed.push(a);
+    }
+  }
+ 
+  return compressed;
+};
+
+function fun(){
+  
+  arr.sort();
+
+  var newArr = compressArray(arr);
+  console.log(newArr);
+
+  //var str = newArr.toString();
+  window.alert(JSON.stringify(newArr));
+
+//   var result = [];
+//   for (var k = 0; k < newArr.length; k++){
+//     result.push(newArr[k]);
+//     result.push('\n ');
+// }
+// var str = JSON.stringify(result);
+//   window.alert(str);
+
+  //document.getElementById("form-group").innerHTML("the value for number is: " + newArr);
+  // for(var k = 0; k < newArr.length; k++) {
+  //   window.alert(newArr[k]);
+  // }
+
+  /*for(var i=0;i<arr.length;i++){
+    lang.push(arr[i]);
+    coun =1;
+    for(var j=i+1;j<arr.length;j++){
+      if(arr[i]===arr[j])
+        coun++;
+    } 
+     count.push(coun);
+     i=j-1;
+     console.log(coun);
+  }*/
+
+  //d();
+}
+  </script> 
+  
+</head>
+
+<body>
+
+  <div class="signup__container">
+    <div class="container__child signup__thumbnail">
+      <div class="thumbnail__logo">
+        <h1 class="logo__text">Extension For Students</h1>
+      </div>
+    <div class="thumbnail__content text-center">
+      <h1 class="heading--primary">Welcome to the portal</h1>
+      <h2 class="heading--secondary">Are you ready to explore some exciting opportunities?</h2>
+    </div>
+    <div class="thumbnail__links">
+      <ul class="list-inline m-b-0 text-center">
+        <li><a href="http://alexdevero.com/" target="_blank"><i class="fa fa-google"></i></a></li>
+        <li><a href="https://www.behance.net/alexdevero" target="_blank"><fa class="fa fa-facebook"></fa></a></li>
+        <li><a href="https://github.com/alexdevero" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a href="https://twitter.com/alexdevero" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container__child signup__form">
+    <form>
+      <div class="form-group">
+        <label for="github">GitHub Username</label>
+          <input class="form-control" type="text" name="github" id="github" placeholder="AnanyaAggarwal" required onchange= "abc()"/><br/>
+      </div>
+
+      <div class="form-group">
+        <label for="passwordRepeat">Password (For Recruiters)</label>
+        <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="Repeat Password" required/><br/>
+        <ul class="list-inline">
+          <li>
+            <input class="btn btn--form" type="submit" value="findskillset" onclick="fun()"/>
+          </li>
+          <li>
+            <a class="signup__link" href="signin.html">Not a Recruiter? Sign In as a student!</a>
+          </li>
+        </ul>
+      </div>
+      <!--/div-->
+    </form>  
+  </div>
+  
+
+</body>
+
+</html>
