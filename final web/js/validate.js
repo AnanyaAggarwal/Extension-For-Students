@@ -20,6 +20,7 @@ function firstNameRequired(){
 	
 		if(empt.match(letters)){
 			return true;
+            
 		}else{
 			alert("Enter a valid first name");
 			return false;		

@@ -1,92 +1,156 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>LinkedIn extension</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="LinkedIn extension" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!DOCTYPE html>
+<html lang="en">
 
-<link href="css/font-awesome.css" rel="stylesheet"> 
-</head>
+<head>
+    <title>Extension for Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="LinkedIn extension"/>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Custom Theme files -->
+    
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css'>
+    <!--link href="css/styleme.css" rel='stylesheet' type='text/css' /-->
+    <link href='//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href="css/font-awesome.css" rel="stylesheet"> 
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+  </head>
+
+
+<!-- Header -->
+<header class="masthead">
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">Welcome to your profile!</div>
+      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+    </div>
+  </div>
+</header>
+
 <body>
 <nav class="navbar navbar-inverse" role="navigation">
-     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button> 
-            <a class="navbar-brand" href="https://www.linkedin.com"><img src="images/logo.png" height=28 width=111></a>
+     <div id="page_title" style="font-size: 20px; color: #fff; text-align: left;">Logged in as <a href="index2.html">@user2</a></h3>
+  </nav>
+
+
+  <!--body id="page-top" class-->
+  <section class="bg-light" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <div class="timeline-image">
+                 <img class="rounded-circle img-fluid" src="images/img4.png" alt="">
+            </div>
+            <h2 class="section-heading text-uppercase">User2's Profile</h2>
+            <h3 class="section-subheading text-muted">Let's take a look at your profile below</h3>
+          </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li class="dropdown"><a href="index2.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-            <li class="dropdown"> <a href="competitions2.html"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Competitions</a></li>
-            <li class="dropdown"> <a href="scholarships2.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Scholarships</a></li>
-            <li class="dropdown"> <a href="research2.html"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Research Opportunities</a></li>
-		</ul>
-		<ul>
-        </ul>
-	<div class="clearfix"> </div>
-     </div>
-     </div>
-        <div id="page_title">@user2's profile</h3>
-	</nav>
-	
-<div class="banner">
-	<div class="container">
-		<div id="home_title">User Details</div>
-        <!-- <div id="profile_pic1"><img src="user1.jpg"></div> -->
-		<ul id="user_details">
-			<li class="details">
-				<!-- <a href="competitions.html">
-					<img src="images/competition.png">
-				</a> -->
-				<span class="subheading">User ID:</span><span class="info"> 1846</span>
-			</li> 
-			<li class="details">
-                <!-- <a href="competitions.html">
-                    <img src="images/competition.png">
-                </a> -->
-                <span class="subheading">Name:</span><span class="info"> Mandy</span>
-            </li> 
-            <li class="details">
-                <!-- <a href="competitions.html">
-                    <img src="images/competition.png">
-                </a> -->
-                <span class="subheading">City, State, Country:</span><span class="info"> Newportville, PA, USA</span>
-            </li> 
-            <li class="details">
-                <!-- <a href="competitions.html">
-                    <img src="images/competition.png">
-                </a> -->
-                <span class="subheading">Degree Type:</span><span class="info"> Associate's</span>
-            </li> 
-            <li class="details">
-                <!-- <a href="competitions.html">
-                    <img src="images/competition.png">
-                </a> -->
-                <span class="subheading">Major:</span><span class="info"> Computer Electronics</span>
-            </li> 
-            <li class="details">
-                <!-- <a href="competitions.html">
-                    <img src="images/competition.png">
-                </a> -->
-                <span class="subheading">Skills:</span><span class="info"> computer science, computer, electronics, C, Ruby, Java, HTML, CSS, problem solving, leadership, programming</span>
-            </li> 
-		</ul>
-	</div>
-</div>
-</body>
-</html>
-		
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="timeline">
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="images/img11.png" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>Personal Details</h4>
+                    <h5 class="subheading">User ID</h5>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">1846</p>
+                  </div>
+                  <div class="timeline-heading">
+                  <h5 class="subheading">Name</h5>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Mandy</p>
+                </div>
+              </li>
+
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="images/img12.jpeg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>Address</h4>
+                    <h5 class="subheading">City, State, Country</h5>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Newportville, PA, USA</p>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="images/img13.png" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>Education Details</h4>
+                    <h5 class="subheading">Degree Type</h5>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Associate's</p>
+                  </div>
+                  <div class="timeline-heading">
+                    <h5 class="subheading">Major</h5>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Computer Electronics</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="images/img14.jpeg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>Professional Details</h4>
+                    <h5 class="subheading">Skills</h5>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Computer Science, Computer, Electronics, C, Ruby, Java, HTML, CSS, Problem Solving, Leadership, Programming</p>
+                  </div>
+                </div>
+              </li>
+              <!-- <li class="timeline-inverted">
+                <div class="timeline-image">
+                  h4>Be Part
+                    <br>Of Our
+                    <br>Story!</h4
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+
+    </body>

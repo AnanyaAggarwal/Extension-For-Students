@@ -248,3 +248,29 @@ label {
 .signup__link:focus, .signup__link:hover {
   color: #787878;
 }
+.btncls{
+ 
+background-color:#B80C4D;
+ 
+border: #2e6da4;
+ 
+font-family: Arial, Geneva, Arial, Helvetica,  sans-serif;
+ 
+font-size: 15px;
+ 
+color: #fff;
+ 
+letter-spacing: 1px;
+ 
+padding: 8px 12px;
+ 
+font-size: 14px;
+font-weight: normal; 
+border-radius: 4px;
+ 
+line-height: 1.5;
+ 
+text-decoration:none
+ 
+}
+
