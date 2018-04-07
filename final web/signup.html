@@ -158,7 +158,7 @@
 
       <div class="form-group">
         <label for="github">GitHub Username</label>
-          <input class="form-control" type="text" name="github" id="github" placeholder="AnanyaAggarwal" required/><br/>
+          <input class="form-control" type="text" name="github" id="github" placeholder="AnanyaAggarwal" required onfocusout="abc()"/><br/>
       </div>
 
       <div class="form-group">
@@ -182,6 +182,71 @@
     </form>  
   </div>
 </div>
+
+<script type="text/javascript">
+ function abc(){ 
+  var github = document.getElementById('github').value;
+  var arr = [];
+  var count = 0;
+  jQuery.ajax({
+            url: "https://api.github.com/users/"+escape(github),
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            success: function(MainData) {
+              var c=MainData.public_repos
+              for (var i=0; i<c; i++){
+                  jQuery.ajax({
+                    url: "https://api.github.com/users/"+escape(github)+"/repos",
+                    type: "GET",
+
+                    contentType: 'application/json; charset=utf-8',
+                    success: function(reposData) {
+                          jQuery.ajax({
+                              url: "https://api.github.com/repos/"+escape(reposData[count++].full_name)+"/languages",
+                              type: "GET",
+
+                              contentType: 'application/json; charset=utf-8',
+                              success: function(languageData) {
+                                $.each(languageData, function(index, record) {
+                                  //if(Hmap.includes(index))
+                                    //Hmap.push({value:index,label:1+label});
+                                  //console.log("hi")
+                                  //else
+                                  var str = index.toString();
+                                    arr.push(str);
+                                });
+                                
+                              },
+                              error : function(jqXHR, textStatus, errorThrown) {
+                              },
+
+                              timeout: 120000,
+                          });
+                          
+
+                    },
+                    error : function(jqXHR, textStatus, errorThrown) {
+                    },
+
+                    timeout: 120000,
+                });
+            }
+
+            //Hmap.sort();
+            for(var i in arr)
+             console.log(arr[i]);
+          },
+            error : function(jqXHR, textStatus, errorThrown) {
+            },
+
+            timeout: 120000,
+        
+      });
+
+    
+    
+}
+</script>
 </body>
 
 </html>
