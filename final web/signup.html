@@ -158,7 +158,7 @@
 
       <div class="form-group">
         <label for="github">GitHub Username</label>
-          <input class="form-control" type="text" name="github" id="github" placeholder="AnanyaAggarwal" required/><br/>
+          <input class="form-control" type="text" name="github" id="github" placeholder="AnanyaAggarwal" required onfocusout="abc()"/><br/>
       </div>
 
       <div class="form-group">
@@ -172,7 +172,7 @@
       <!--div class="m-t-lg"-->
         <ul class="list-inline">
           <li>
-            <input class="btn btn--form" type="submit" value="Register"/>
+            <input class="btn btn--form" type="submit" value="Register" onclick="fun()" />
           </li>
           <li>
             <a class="signup__link" href="signin.html">Sign In</a>
@@ -182,6 +182,97 @@
     </form>  
   </div>
 </div>
+
+<script type="text/javascript">
+  var arr = new Array();
+  var lang = new Array();
+  var count = new Array();
+ function abc(){ 
+  var github = document.getElementById('github').value;
+  
+  var count = 0;
+  jQuery.ajax({
+            url: "https://api.github.com/users/"+escape(github),
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            success: function(MainData) {
+              var c=MainData.public_repos
+              for (var i=0; i<c; i++){
+                  jQuery.ajax({
+                    url: "https://api.github.com/users/"+escape(github)+"/repos",
+                    type: "GET",
+
+                    contentType: 'application/json; charset=utf-8',
+                    success: function(reposData) {
+                          jQuery.ajax({
+                              url: "https://api.github.com/repos/"+escape(reposData[count++].full_name)+"/languages",
+                              type: "GET",
+
+                              dataType: 'json',
+                              success: function(languageData) {
+                                //var data = JSON.parse(languageData);
+                                $.each(languageData, function(index, record) {
+                                  //if(Hmap.includes(index))
+                                    arr.push(index);
+                                  //console.log("hi")
+                                  //else
+                                  //var str = JSON.stringify(index);
+                                    //arr.push(str);
+                                //});
+                                //var s= JSON.stringify(languageData);
+                              });
+                                //console.log(languageData);
+                              },
+                              error : function(jqXHR, textStatus, errorThrown) {
+                              },
+
+                              timeout: 120000,
+                          });
+                          
+
+                    },
+                    error : function(jqXHR, textStatus, errorThrown) {
+                    },
+
+                    timeout: 120000,
+                });
+            }
+
+            //Hmap.sort();
+            console.log(arr);
+          },
+            error : function(jqXHR, textStatus, errorThrown) {
+            },
+            timeout: 120000,
+        
+      });
+
+    
+    
+}
+function fun(){
+  
+  arr.sort();
+
+  for(var i=0;i<arr.length;i++){
+    lang.push(arr[i]);
+    var coun =1;
+    for(var j=i+1;j<arr.length;j++){
+      if(arr[i]==arr[j])
+        coun++;
+    } 
+     count.push(coun);
+     i=j-1;
+  }
+
+  d();
+}
+
+function d(){
+  console.log(lang);
+  console.log(count);
+}
+</script>
 </body>
 
 </html>
